@@ -1,0 +1,53 @@
+table { width: 100%; }
+th { white-space: nowrap; }
+.flash.success { background: var(--pico-primary-background); color: var(--pico-primary); padding: .6rem .8rem; border-radius: .5rem; }
+.flash.danger  { background: var(--pico-del-color); color: white; padding: .6rem .8rem; border-radius: .5rem; }
+
+/* Make forms compact in tables/toolbars */
+form.inline { display: flex; gap: .5rem; flex-wrap: wrap; }
+form.inline input, form.inline select, form.inline button { margin: 0; }
+
+/* Card grid for items page (optional) */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.card { border: 1px solid var(--pico-muted-border-color); border-radius: .8rem; padding: 1rem; }
+.card h4 { margin: .2rem 0 .4rem; }
+.card p  { margin: 0; }
+
+/* Make homepage cards bigger and more immersive */
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* wider cards */
+  gap: 2rem; /* more spacing between cards */
+  align-items: stretch;
+}
+
+.card {
+  background: var(--pico-card-background-color);
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.12);
+  padding: 1.25rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 24px rgb(0 0 0 / 0.18);
+}
+
+/* Bigger, more cinematic images */
+.card img {
+  width: 100%;
+  height: 340px; /* increase this for even taller images */
+  object-fit: cover;
+  border-radius: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.card h4 {
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.card p {
+  font-size: 1.05rem;
+  color: var(--pico-muted-color);
+}

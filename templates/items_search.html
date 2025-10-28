@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section>
+  <form method="get" class="inline">
+    <input type="text" name="name" placeholder="Item name" value="{{ q.name or '' }}">
+    <input type="text" name="type" placeholder="Type (e.g. Jacket, Tent)" value="{{ q.type or '' }}">
+    <input type="number" name="min_price" step="0.01" min="0" placeholder="Min $" value="{{ q.min_price or '' }}">
+    <input type="number" name="max_price" step="0.01" min="0" placeholder="Max $" value="{{ q.max_price or '' }}">
+    <button type="submit">Search</button>
+    <a href="/items" role="button" class="contrast">Clear</a>
+  </form>
+
+  {% if rows %}
+  <p><small>Showing {{ rows|length }} results{% if q.name or q.type or q.min_price or q.max_price %} for your filter{% endif %}.</small></p>
+  <table>
+    <thead>
+      <tr>
+        {% for c in cols %}
+        <th>{{ c|replace('_',' ')|title }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in rows %}
+      <tr>
+        {% for v in r %}
+        <td>
+          {% if loop.index == 4 %} <!-- price column -->
+            ${{ '%.2f'|format(v) }}
+          {% elif v is boolean %}
+            {{ '✅' if v else '❌' }}
+          {% else %}
+            {{ v }}
+          {% endif %}
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p><em>No items found. Try adjusting your filters.</em></p>
+  {% endif %}
+</section>
+
+{% endblock %}

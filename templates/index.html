@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section>
+  <div class="grid">
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/mountain.png') }}" alt="Mountain landscape" loading="lazy">
+      <h4>Adventure Awaits</h4>
+      <p>Gear for every summit and backcountry route.</p>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/tent.png') }}" alt="Tent in campsite" loading="lazy">
+      <h4>Camp in Comfort</h4>
+      <p>Tents, sleeping bags, and campsite essentials.</p>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/climb.png') }}" alt="Climber on wall" loading="lazy">
+      <h4>Climb & Explore</h4>
+      <p>Trusted brands for rock, ice, and alpine missions.</p>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/snowboarding.png') }}" alt="Climber on wall" loading="lazy">
+      <h4>Climb & Explore</h4>
+      <p>Pushing your boundary and limit.</p>
+    </article>
+  </div>
+
+  <hr>
+
+  <p>
+    <a href="/items/search" role="button">🔍 Search Items</a>
+    <a href="/customers" role="button" class="contrast">Customers</a>
+    <a href="/orders" role="button" class="secondary">Orders</a>
+  </p>
+</section>
+
+{% endblock %}

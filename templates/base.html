@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title or 'Outdoor Retail DB' }}</title>
+  <!-- Pico.css (classless, pretty by default) -->
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@2/css/pico.min.css">
+  <!-- Your tiny custom overrides -->
+  <link rel="stylesheet" href="/static/custom.css">
+</head>
+<body>
+  <header class="container">
+    <nav>
+      <ul>
+        <li><strong>Outdoor Retail DB</strong></li>
+      </ul>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/customers">Customers</a></li>
+        <li><a href="/stores">Stores</a></li>
+        <li><a href="/items">Items</a></li>
+        <li><a href="/stock">Inventory</a></li>
+        <li><a href="/orders">Orders</a></li>
+        <li><a href="/items/search">Item Search</a></li>
+        <li><a href="/reports/top-items">Best Sellers</a></li>
+        <li><a href="/orders/new">New Order</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <article class="flash {{ category }}" role="alert">{{ message }}</article>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <h1>{{ title or 'Outdoor Retail DB' }}</h1>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
